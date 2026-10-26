@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Guitar Tuner — Free Online Tuner with Microphone (Guitar, Bass, Ukulele) | S3eidat Tools</title>
+<meta name="description" content="Tune your guitar, bass or ukulele with your microphone. Accurate pitch detection, note and cents needle, Drop D, DADGAD, open tunings, reference tones and A4 calibration. Free, private, nothing recorded.">
+<meta property="og:title" content="Guitar Tuner — free, private, with your mic">
+<meta property="og:description" content="Accurate tuner for guitar, bass and ukulele. The sound never leaves your device.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="guitar-tuner">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>Guitar Tuner</h1>
+    <p>Tune a guitar, bass or ukulele with your microphone. Play one string at a time and bring the needle to the middle. The sound is analysed live and never recorded.</p>
+  </section>
+
+  <div class="grid-2 gt-grid">
+    <section class="card stack gt-main">
+      <div class="row between">
+        <span class="chip" id="status">Microphone off</span>
+        <span class="faint mono" id="hz">— Hz</span>
+      </div>
+      <div class="gauge">
+        <svg viewBox="0 0 300 175" aria-hidden="true">
+          <g id="ticks"></g>
+          <path class="zone" d="M 136.4 30.7 A 130 130 0 0 1 163.6 30.7"/>
+          <g id="needle" class="needle"><line x1="150" y1="160" x2="150" y2="38"/><circle cx="150" cy="160" r="7"/></g>
+        </svg>
+        <div class="note-box">
+          <div class="note" id="note">—</div>
+          <div class="cents mono" id="cents">play a string</div>
+        </div>
+      </div>
+      <div class="advice" id="advice" aria-live="polite">&nbsp;</div>
+      <div class="strings" id="strings" role="group" aria-label="Strings: click to hear the reference tone"></div>
+      <div class="row center-row">
+        <button class="btn primary big" id="mic"><svg class="i"><use href="#i-play"/></svg><span>Start tuning</span></button>
+        <button class="btn big" id="auto" aria-pressed="true" title="Detect the nearest string automatically">Auto string</button>
+      </div>
+      <div class="card notice" id="notice" hidden></div>
+    </section>
+
+    <section class="card stack">
+      <h2>Tuning</h2>
+      <label class="field">Instrument &amp; tuning
+        <select class="select" id="tuning"></select>
+      </label>
+      <label class="field range">A4 calibration <span class="val mono" id="a4v">440 Hz</span>
+        <input type="range" id="a4" min="430" max="450" step="1" value="440">
+      </label>
+      <label class="check"><input type="checkbox" id="sustain"> Reference tone keeps ringing (click again to stop)</label>
+      <div class="tips">
+        <b>Tips</b>
+        <ul class="faint">
+          <li>Click a string to hear its reference note and lock the tuner to it. <b>Auto string</b> picks the nearest one for you.</li>
+          <li>Pluck firmly and let the note ring; mute the other strings.</li>
+          <li>Tune <em>up</em> to the note: if you're sharp, go a little below and come back up.</li>
+          <li>Within ±5 cents is in tune; most ears can't hear less than that.</li>
+        </ul>
+      </div>
+      <p class="faint">The microphone is only used while tuning is on, with echo cancellation and noise suppression switched off so the real pitch comes through.</p>
+    </section>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.gt-grid { align-items: start; }
+.gt-main { gap: 16px; }
+.gauge { position: relative; max-width: 420px; width: 100%; margin: 0 auto; }
+.gauge svg { display: block; width: 100%; height: auto; overflow: visible; }
+.gauge .tick { stroke: var(--text-3); stroke-width: 1.5; stroke-linecap: round; }
+.gauge .tick.major { stroke: var(--text-2); stroke-width: 2.5; }
+.gauge .lbl { fill: var(--text-3); font: 600 10px var(--font); text-anchor: middle; }
+.gauge .zone { fill: none; stroke: var(--ok); stroke-width: 10; stroke-linecap: round; opacity: .55; }
+.needle { transform-origin: 150px 160px; transition: transform 160ms var(--ease); }
+.needle line { stroke: var(--text-2); stroke-width: 3.5; stroke-linecap: round; }
+.needle circle { fill: var(--text-2); }
+.in-tune .needle line, .in-tune .needle circle { stroke: var(--ok); fill: var(--ok); }
+.idle .needle { opacity: .35; }
+.note-box { margin-top: 2px; display: grid; justify-items: center; pointer-events: none; }
+.note { font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -.03em; color: var(--text); }
+.note sub { font-size: .38em; font-weight: 700; color: var(--text-3); vertical-align: baseline; margin-left: 2px; }
+.in-tune .note { color: var(--ok); }
+.cents { color: var(--text-3); font-size: 13px; margin-top: 2px; }
+.advice { text-align: center; font-weight: 650; font-size: 15px; color: var(--text-2); min-height: 22px; }
+.in-tune .advice { color: var(--ok); }
+.strings { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.str { min-width: 52px; height: 52px; padding: 0 10px; border-radius: 14px; background: var(--surface-2); border: 1.5px solid var(--line); display: grid; place-content: center; line-height: 1.05; font-weight: 750; font-size: 17px; color: var(--text); transition: border-color var(--dur), background var(--dur); }
+.str small { font-size: 10px; font-weight: 600; color: var(--text-3); }
+.str:hover { border-color: var(--line-strong); }
+.str.target { border-color: var(--accent); background: var(--accent-soft); }
+.str.done { box-shadow: inset 0 -3px 0 var(--ok); }
+.str.ringing { animation: ring 600ms ease-in-out infinite alternate; }
+@keyframes ring { to { box-shadow: 0 0 0 5px var(--accent-soft); } }
+.center-row { justify-content: center; }
+.center-row .btn.big { min-width: 150px; }
+#auto[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.notice { padding: 12px 14px; border-color: var(--warn); background: var(--surface-2); box-shadow: none; }
+.field.range { grid-template-columns: 1fr auto; }
+.field.range input { grid-column: 1 / -1; }
+.tips { padding: 12px 14px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line); }
+.tips ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; }
